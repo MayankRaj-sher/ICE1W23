@@ -18,11 +18,9 @@ public class CardTrick {
 
         for (int i = 0; i < hand.length; i++) {
             Card card = new Card();
-            //card.setValue(insert call to random number generator here)
-            // 
-            //card.setSuit(Card.SUITS[insert call to random number between 0-3 here])
-            // Hint: You can use Random -> random.nextInt(n) to get a random number between 0 and n-1 (inclusive)
-            //       Don't worry about duplicates at this point
+            card.setValue((int)(Math.random()*12+1));           
+            card.setSuit(Card.SUITS[(int)(Math.random()*3+1)]);
+            hand[i]=card;
         }
         Scanner input = new Scanner(System.in);
         while (true){
@@ -30,7 +28,7 @@ public class CardTrick {
             System.out.println("Enter your card Number, 11->Jack, 12->Queen, : ");
             temp.setValue(Integer.parseInt(input.nextLine()));
             System.out.println("Enter your suit: ");
-            temp.setSuit(input.nextLine());
+            temp.setSuit(Card.SUITS[Integer.parseInt(input.nextLine())]);
             for (Card c1: hand){
                 if (Objects.equals(temp.getSuit(), c1.getSuit()) &&temp.getValue()==c1.getValue()){
                     printInfo();
@@ -43,6 +41,7 @@ public class CardTrick {
     /**
      * @author Mayank Raj May 2022
      */
+    //I'am Done!!
     private static void printInfo() {
     
         System.out.println("Congratulations, you guessed right!");
